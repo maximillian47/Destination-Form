@@ -38,6 +38,7 @@ function addCards(event) {
     // <p>${cardLoca}</p>
     // <img src=${cardPic}</>
     // <p>${cardDesc}</p>`;
+
 {/* <div class="card" style="width: 18rem;">
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body">
@@ -51,6 +52,8 @@ function addCards(event) {
     document.getElementById("wish_container").appendChild(createCard);
     resetValues();
     console.log(dest, location, photo, desc);
+
+    card.addEeventListener("click", handleClick);
 }
 
 function resetValues() {
@@ -60,10 +63,39 @@ function resetValues() {
     document.getElementById("desc").value="";
 }
 
-function handleDelete(e) {
-    const elt = e.target;
-    
-    if(elt.getAttribute('id') === 'delete_btn'){
-        elt.parentElement.parentElement.remove();
+function handleClick(event) {
+    const elt = event.target;
+
+    if (elt.getAttribute("btn_type")=== "delete_btn") {
+        deleteCard(elt);
+    } else if (elt.getAttribute("btn_type")==="edit_btn") {
+        handleEdit(elt);
     }
+}
+
+function deleteCard(btn) {
+    btn.parentElement.parentElement.remove();
+}
+
+// function handleDelete(e) {
+//     const elt = e.target;
+    
+//     if(elt.getAttribute('id') === 'delete_btn'){
+//         elt.parentElement.parentElement.remove();
+//     }
+// }
+
+function handleEdit(elt) {
+    const card = elt.parentElement;
+
+    const prevDest = card.children[0].innerHTML;
+    const prevLoc = card.children[1].innerHTML;
+    const prevDesc = card.children[2].innerHTML;
+    const prevPhoto = card.parentElement.children[0].getAttribute("src");
+
+    const newDest = prompt("Enter your new destination ", prevDesc);
+    const newLoc = prompt("Enter your new location ", prevDesc);
+    const newPhoto = prompt("Enter your new photo ", prevDesc);
+    const newDesc = prompt("Enter your new description ", prevDesc);
+
 }
