@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main_container">
+        <div class="panel" id="form_container">
+            <form id="myForm">
+                <input type="text" name ="dest" id="dest" placeholder="Destination" required>
+                <input type="text" name ="location" id="location" placeholder="Location" required>
+                <input type="text" name ="photo" id="photo" placeholder="Photo URL" >
+                <input type="text" name ="desc" id="desc" placeholder="Description" required>
+                <input type="submit" value="submit">
+            </form>
+        </div>
+
+        <div class="panel" id="wish_container">
+            <h3 id="title">Enter Destination Details</h3>
+            <div id="list"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
